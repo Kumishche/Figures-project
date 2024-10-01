@@ -9,10 +9,10 @@ using namespace std;
 //	группы, состо€щей из большего количества точек, которые лежат на одной пр€мой).
 //	–езультирующее значение - количество точек в найденной группе, массив indices -
 //	индексы найденных точек.
-//int getPointsInLine(Point* points, int size, int** indices)
-//{
-//
-//}
+int getPointsInLine(Point* points, int size, int** indices)
+{
+	return 0;
+}
 
 
 //Ќайти такую точку, сумма рассто€ний от которой до остальных точек множества максимальна.
@@ -43,12 +43,14 @@ Point getFarestPoint(Point* points, int size)
 }
 
 //Ќайти три точки, образующие треугольник наибольшего периметра
-//Triangle getMaxLengthTriangle(Point* points, int size)
-//{
-//	//Triangle tr;
-//
-//	for (int i = 0; i < size; i++)
-//	{
-//		//if
-//	}
-//}
+Triangle getMaxLengthTriangle(Point* points, int size)
+{
+	//Triangle tr;
+
+	//for (int i = 0; i < size; i++)
+	//{
+	//	//if
+	//}
+
+	return Triangle();
+}
