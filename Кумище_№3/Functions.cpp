@@ -42,6 +42,7 @@ Point getFarestPoint(Point* points, int size)
 	return max_point;
 }
 
+
 //Найти три точки, образующие треугольник наибольшего периметра
 Triangle getMaxLengthTriangle(Point* points, int size)
 {

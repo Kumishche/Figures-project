@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Functions.cpp" />
+    <ClCompile Include="triangle.cpp" />
     <ClCompile Include="Кумище_№3.cpp" />
   </ItemGroup>
   <ItemGroup>
