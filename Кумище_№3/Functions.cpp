@@ -11,7 +11,48 @@ using namespace std;
 //	индексы найденных точек.
 int getPointsInLine(Point* points, int size, int** indices)
 {
-	return 0;
+	int num = 1;
+	int max_num = 1;
+	double k;
+	int id = 0;
+	int* indexes = new int[size];
+
+	for (int i = 0; i < size - 1; i++)
+	{
+		for (int w = i + 1; w < size; w++)
+		{
+			k = abs(points[i].y - points[w].y) / abs(points[i].x - points[w].x);
+			indexes[id] = i;
+			id++;
+			for (int j = 0; j < size; j++)
+			{
+				// не учитывает совпадения по х 
+				if (j != i && 
+					k == abs(points[i].y - points[j].y) / abs(points[i].x - points[j].x))
+				{
+					num++;
+					indexes[id] = j;
+					id++;
+				}
+			}
+
+			if (num > max_num)
+			{
+				delete[] *indices;
+				max_num = num;
+				*indices = new int[num];
+				for (int q = 0; q < num; q++)
+				{
+					(*indices)[q] = indexes[q];
+				}
+			}
+			id = 0;
+			num = 1;
+		}
+	}
+
+	delete[] indexes;
+	return max_num;
 }
 
 

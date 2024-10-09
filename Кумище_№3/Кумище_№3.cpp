@@ -31,8 +31,8 @@ int main()
     int size = 0;
     Point* points = nullptr;
     Point res;
-    Triangle triangle = Triangle();
-    int** indices = nullptr;
+    Triangle triangle;
+    int* indices = nullptr;
 
     while (true)
     {
@@ -56,7 +56,7 @@ int main()
         switch (s)
         {
         case 1:
-            cout << "Ответ: " << getPointsInLine(points, size, indices) << endl;
+            cout << "Ответ: " << getPointsInLine(points, size, &indices) << endl;
             break;
 
         case 2:
@@ -163,17 +163,24 @@ void setTriangle(Triangle& tr)
             cout << "Повторите ввод: ";
             cin >> p.x >> p.y;
         }
-        tr.setNode(i+1, p);
+        tr.setNode(i + 1, p);
     }
 
     cout << "Треугольник введен" << endl;
 }
 
 
-// перенести в класс triangle
 void getTriangle(Triangle& tr)
 {
     Point p;
+    Triangle t;
+
+    if (tr == t)
+    {
+        cout << "Треугольник не введен" << endl;
+        return;
+    }
+    
     cout << "Вывод треугольника: " << endl;
     for (int i = 0; i < 3; i++)
     {
