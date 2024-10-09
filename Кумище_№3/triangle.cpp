@@ -46,3 +46,32 @@ double Triangle::Perimeter()
 		len(nodes[1], nodes[2]) +
 		len(nodes[0], nodes[2]);
 }
+
+
+bool Triangle::operator == (Triangle& other) const
+{
+	Point p;
+	bool flag = false;
+	int id[3] = {-1, -1, -1};
+
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			p = other.getNode(j + 1);
+			if (this->nodes[i].x == p.x && this->nodes[i].y == p.y &&
+				id[0] != j && id[1] != j)
+			{
+				flag = true;
+				id[i] = j;
+				break;
+			}
+		}
+
+		if (!flag)
+			return false;
+		flag = false;
+	}
+
+	return true;
+}

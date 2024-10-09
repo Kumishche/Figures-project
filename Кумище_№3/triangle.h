@@ -16,4 +16,6 @@ public:
 	
 	double Square();
 	double Perimeter();
+
+	bool operator == (Triangle& other) const;
 };

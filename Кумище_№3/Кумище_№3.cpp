@@ -170,6 +170,7 @@ void setTriangle(Triangle& tr)
 }
 
 
+// перенести в класс triangle
 void getTriangle(Triangle& tr)
 {
     Point p;
