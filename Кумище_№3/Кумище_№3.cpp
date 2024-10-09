@@ -10,7 +10,7 @@
 
 using namespace std;
 
-void setPoints(Point** points, int& size);
+void setPoints(Point*& points, int& size);
 void getPoints(Point* points, int size);
 void setTriangle(Triangle& tr);
 void getTriangle(Triangle& tr);
@@ -61,16 +61,16 @@ int main()
 
         case 2:
             res = getFarestPoint(points, size);
-            cout << "Ответ: " << res.x << " " << res.y << endl;
+            cout << "Ответ: (" << res.x << "; " << res.y << ")" << endl;
             break;
 
         case 3:
             triangle = getMaxLengthTriangle(points, size);
-            cout << "Ответ: " << endl;
+            getTriangle(triangle);
             break;
 
         case 4:
-            setPoints(&points, size);
+            setPoints(points, size);
             break;
 
         case 5:
@@ -98,9 +98,9 @@ int main()
 }
 
 
-void setPoints(Point** points, int& size)
+void setPoints(Point*& points, int& size)
 {
-    delete[] *points;
+    delete[] points;
 
     cout << "Введите размер массива: ";
     cin >> size;
@@ -113,19 +113,19 @@ void setPoints(Point** points, int& size)
         Check(size);
     }
 
-    *points = new Point[size];
+    points = new Point[size];
 
     cout << "Ввод точек: " << endl;
     for (int i = 0; i < size; i++)
     {
         cout << "Введите точку " << i + 1 << ": ";
-        cin >> (*points)[i].x >> (*points)[i].y;
+        cin >> points[i].x >> points[i].y;
         while (cin.fail() || cin.get() != '\n')
         {
             cin.clear(); cin.ignore(256, '\n');
             cout << "Некорректный ввод" << endl;
             cout << "Повторите ввод: ";
-            cin >> (*points)[i].x >> (*points)[i].y;
+            cin >> points[i].x >> points[i].y;
         }
     }
 
@@ -135,7 +135,7 @@ void setPoints(Point** points, int& size)
 
 void getPoints(Point* points, int size)
 {
-    if (size == 0)
+    if (size < 1)
     {
         cout << "Точки не введены" << endl;
         return;

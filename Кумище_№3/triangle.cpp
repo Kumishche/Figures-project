@@ -29,7 +29,7 @@ void Triangle::setNode(int i, Point p)
 		nodes[i-1] = p;
 }
 
-
+ 
 double Triangle::Square()
 {
 	double l1 = len(nodes[0], nodes[1]);
@@ -38,6 +38,7 @@ double Triangle::Square()
 	double p = (l1 + l2 + l3) / 2;
 	return p * (p - l1) * (p - l2) * (p - l3);
 }
+
 
 double Triangle::Perimeter()
 {

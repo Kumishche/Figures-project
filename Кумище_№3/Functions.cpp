@@ -18,7 +18,11 @@ int getPointsInLine(Point* points, int size, int** indices)
 //Ќайти такую точку, сумма рассто€ний от которой до остальных точек множества максимальна.
 Point getFarestPoint(Point* points, int size)
 {
-	Point max_point = Point();
+	// плоха€ обработка получаетс€(((
+	if (size < 1)
+		return Point();
+
+	Point max_point = points[0];
 	double sum = 0, max_sum = 0;
 
 	for (int i = 0; i < size; i++)
@@ -46,12 +50,12 @@ Point getFarestPoint(Point* points, int size)
 //Ќайти три точки, образующие треугольник наибольшего периметра
 Triangle getMaxLengthTriangle(Point* points, int size)
 {
-	//Triangle tr;
+	if (size < 1)
+		return Triangle();
 
-	//for (int i = 0; i < size; i++)
-	//{
-	//	//if
-	//}
+	
+
+
 
 	return Triangle();
 }
