@@ -11,24 +11,30 @@ using namespace std;
 //	индексы найденных точек.
 int getPointsInLine(Point* points, int size, int** indices)
 {
-	int num = 1;
-	int max_num = 1;
+	int num = 2;
+	int max_num = 2;
 	double k;
-	int id = 0;
+	int id;
 	int* indexes = new int[size];
 
 	for (int i = 0; i < size - 1; i++)
 	{
+		indexes[0] = i;
+		id = 1;
+
 		for (int w = i + 1; w < size; w++)
 		{
-			k = abs(points[i].y - points[w].y) / abs(points[i].x - points[w].x);
-			indexes[id] = i;
+			if (points[i].x - points[w].x == 0) continue;
+			k = (points[i].y - points[w].y) / (points[i].x - points[w].x);
+			indexes[id] = w;
 			id++;
+
 			for (int j = 0; j < size; j++)
 			{
-				// не учитывает совпадения по х 
-				if (j != i && 
-					k == abs(points[i].y - points[j].y) / abs(points[i].x - points[j].x))
+				if (points[i].x - points[j].x == 0) continue;
+
+				if (j != i && j != w &&
+					k == (points[i].y - points[j].y) / (points[i].x - points[j].x))
 				{
 					num++;
 					indexes[id] = j;
@@ -46,9 +52,49 @@ int getPointsInLine(Point* points, int size, int** indices)
 					(*indices)[q] = indexes[q];
 				}
 			}
-			id = 0;
-			num = 1;
+
+			id = 1;
+			num = 2;
 		}
+	}
+
+	id = 0;
+	num = 1;
+
+	for (int i = 0; i < size-1; i++)
+	{
+		indexes[id] = i;
+		id++;
+
+		for (int j = i + 1; j < size; j++)
+		{
+			if (points[i].x - points[j].x == 0)
+			{
+				num++;
+				indexes[id] = j;
+				id++;
+			}
+		}
+
+		if (num > max_num)
+		{
+			delete[] *indices;
+			max_num = num;
+			*indices = new int[num];
+			for (int q = 0; q < num; q++)
+			{
+				(*indices)[q] = indexes[q];
+			}
+		}
+
+		id = 0;
+		num = 1;
+	}
+
+	cout << "indices: " << endl;
+	for (int q = 0; q < max_num; q++)
+	{
+		cout << (*indices)[q] << endl;
 	}
 
 	delete[] indexes;
