@@ -7,6 +7,7 @@
 #include "point.h"
 #include "triangle.h"
 #include "Functions.h"
+#include "AutoTests.h"
 
 using namespace std;
 
@@ -19,7 +20,7 @@ void Check(int& var);
 int main()
 {
     SetConsoleCP(1251); SetConsoleOutputCP(1251);
-
+    
     //------------------
     int V = (int('K') + int('R')) % 12;
     cout << V << endl;
@@ -45,7 +46,9 @@ int main()
         cout << "6 - вывести массив точек" << endl;
         cout << "7 - вывести треугольник" << endl;
         cout << setw(20) << setfill('-') << "" << endl;
-        cout << "8 - выход" << endl;
+        cout << "8 - автоматическое тестирование" << endl;
+        cout << setw(20) << setfill('-') << "" << endl;
+        cout << "9 - выход" << endl;
         cout << setw(40) << setfill('=') << "" << endl;
         cout << endl;
 
@@ -86,6 +89,15 @@ int main()
             break;
 
         case 8:
+            getPointsInLine_TEST();
+            cout << endl << endl;
+            getFarestPoint_TEST();
+            cout << endl << endl;
+            getMaxLengthTriangle_TEST();
+            cout << endl << endl;
+            break;
+
+        case 9:
             return 0;
 
         default:

@@ -30,6 +30,14 @@ void Triangle::setNode(int i, Point p)
 }
 
  
+void Triangle::Print()
+{
+	std::cout << "(" << nodes[0].x << "; " << nodes[0].y << "), " <<
+		"(" << nodes[1].x << "; " << nodes[1].y << "), " <<
+		"(" << nodes[2].x << "; " << nodes[2].y << ").";
+}
+
+
 double Triangle::Square()
 {
 	double l1 = len(nodes[0], nodes[1]);

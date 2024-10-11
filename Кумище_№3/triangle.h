@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include "point.h"
 
 class Triangle
@@ -13,6 +14,7 @@ public:
 
 	Point getNode(int i);
 	void setNode(int i, Point p);
+	void Print();
 	
 	double Square();
 	double Perimeter();

@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AutoTests.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="triangle.cpp" />
     <ClCompile Include="Кумище_№3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AutoTests.h" />
     <ClInclude Include="Functions.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="triangle.h" />

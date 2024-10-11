@@ -91,12 +91,6 @@ int getPointsInLine(Point* points, int size, int** indices)
 		num = 1;
 	}
 
-	cout << "indices: " << endl;
-	for (int q = 0; q < max_num; q++)
-	{
-		cout << (*indices)[q] << endl;
-	}
-
 	delete[] indexes;
 	return max_num;
 }
