@@ -144,11 +144,11 @@ Triangle getMaxLengthTriangle(Point* points, int size)
 	Point p1 = getFarestPoint(points, size);
 	for (int i = 0; i < size; i++)
 	{
-		if (points[i].x == p1.x && points[i].y == p1.y) continue;
+		if (points[i] == p1) continue;
 		for (int j = 0; j < size; j++)
 		{
-			if (points[j].x == p1.x && points[j].y == p1.y) continue;
-			if (points[j].x == points[i].x && points[j].y == points[i].y) continue;
+			if (points[j] == p1) continue;
+			if (points[j] == points[i]) continue;
 			if (abs(p1.y - points[i].y) / abs(p1.x - points[i].x) ==
 				abs(p1.y - points[j].y) / abs(p1.x - points[j].x)) continue;
 

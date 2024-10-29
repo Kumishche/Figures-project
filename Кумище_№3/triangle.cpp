@@ -44,7 +44,7 @@ double Triangle::Square()
 	double l2 = len(nodes[1], nodes[2]);
 	double l3 =	len(nodes[0], nodes[2]);
 	double p = (l1 + l2 + l3) / 2;
-	return p * (p - l1) * (p - l2) * (p - l3);
+	return sqrt(p * (p - l1) * (p - l2) * (p - l3));
 }
 
 

@@ -64,7 +64,9 @@ int main()
 
         case 2:
             res = getFarestPoint(points, size);
-            cout << "Ответ: (" << res.x << "; " << res.y << ")" << endl;
+            cout << "Ответ: ";
+            res.Print();
+            cout << endl;
             break;
 
         case 3:
@@ -95,6 +97,8 @@ int main()
             cout << endl << endl;
             getMaxLengthTriangle_TEST();
             cout << endl << endl;
+            Square_TEST();
+            cout << endl;
             break;
 
         case 9:
@@ -156,7 +160,9 @@ void getPoints(Point* points, int size)
     cout << "Массив точек: " << endl;
     for (int i = 0; i < size; i++)
     {
-        cout << i + 1 << ": (" << points[i].x << "; " << points[i].y << ")" << endl;
+        cout << i + 1 << ": ";
+        points[i].Print();
+        cout << endl;
     }
 }
 
@@ -184,7 +190,6 @@ void setTriangle(Triangle& tr)
 
 void getTriangle(Triangle& tr)
 {
-    Point p;
     Triangle t;
 
     if (tr == t)
@@ -194,11 +199,8 @@ void getTriangle(Triangle& tr)
     }
     
     cout << "Вывод треугольника: " << endl;
-    for (int i = 0; i < 3; i++)
-    {
-        p = tr.getNode(i+1);
-        cout << i+1 << ": (" << p.x << "; " << p.y << ")" << endl;
-    }
+    tr.Print();
+    cout << endl;
 }
 
 

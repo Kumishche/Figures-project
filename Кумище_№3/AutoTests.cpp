@@ -296,6 +296,48 @@ void getMaxLengthTriangle_TEST()
 	cout << setw(40) << setfill('=') << "" << endl;
 }
 
+void Square_TEST()
+{
+	float s = -1;
+	float res = -1;
+
+	{
+		cout << "Тест 1: " << endl;
+		cout << "Треугольник: (0, 0), (0, 10), (10, 0)" << endl;
+		Triangle tr = Triangle(Point(0, 0), Point(0, 10), Point(10, 0));
+		res = tr.Square();
+		s = 50;
+		cout << "Верный ответ: " << s << endl;
+		cout << "Ответ функции: " << res << endl;
+		Check(res, s);
+		cout << setw(20) << setfill('-') << "" << endl;
+	}
+
+	{
+		cout << "Тест 2: " << endl;
+		cout << "Треугольник: (-1, -1), (1, 1), (-1, 2)" << endl;
+		Triangle tr = Triangle(Point(-1, -1), Point(1, 1), Point(-1, 2));
+		res = tr.Square();
+		s = 3;
+		cout << "Верный ответ: " << s << endl;
+		cout << "Ответ функции: " << res << endl;
+		Check(res, s);
+		cout << setw(20) << setfill('-') << "" << endl;
+	}
+
+	{
+		cout << "Тест 3: " << endl;
+		cout << "Треугольник: (-1, -1), (18, 44), (-1, 0)" << endl;
+		Triangle tr = Triangle(Point(-1, -1), Point(18, 44), Point(-1, 0));
+		res = tr.Square();
+		s = 9.5;
+		cout << "Верный ответ: " << s << endl;
+		cout << "Ответ функции: " << res << endl;
+		Check(res, s);
+		cout << setw(20) << setfill('-') << "" << endl;
+	}
+}
+
 template<typename T> void Check(T& res, T& c) 
 {
 	if (res == c)
